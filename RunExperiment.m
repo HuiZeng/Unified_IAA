@@ -7,7 +7,7 @@ addpath(genpath('tools'));
 vl_setupnn;
 
 testDatabase = 'AVA'; % AADB
-Model = 'resnet50'; % resnet50  vgg16
+Model = 'resnet50';
 epoch = 10;
 fixImgSize = 384;
 
