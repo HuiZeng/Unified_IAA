@@ -37,7 +37,7 @@ if isempty(opts.network)
                 net.addLayer('myLoss', dagnn.myLoss('lossType',opts.lossType), {'fc','label'}, 'objective') ;
                 switch opts.lossType
                     case 'CE'
-                        net.meta.trainOpts.learningRate = logspace(-3, -4, opts.epoch);
+                        net.meta.trainOpts.learningRate = logspace(-2, -3, opts.epoch);
                     case 'MSE'
                         net.meta.trainOpts.learningRate = logspace(-2.5, -3.5, opts.epoch);
                     case 'Huber'
