@@ -1,6 +1,6 @@
 function imdb = setup_AADB()
 
-base_dir = fullfile('/home/zenghui/Documents/Image Aesthetics/databases/AADB');
+base_dir = fullfile('databases','AADB');
 Info = load(fullfile(base_dir,'AADBinfo.mat'));
 
 
