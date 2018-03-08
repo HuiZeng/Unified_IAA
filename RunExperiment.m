@@ -12,7 +12,7 @@ epoch = 10;
 fixImgSize = 384;
 
 lossType = 'CE'; % MSE, Huber, CE
-labelType = 'Gauss_OV'; % Gauss_OV Gauss_MV RSD binaryLabel qualityScore
+labelType = 'qualityScore'; % Gauss_OV Gauss_MV RSD binaryLabel qualityScore
 
 trainModel('Model',Model,'database',testDatabase,'lossType',lossType,...
            'labelType',labelType,'epoch',epoch,'fixImgSize',fixImgSize);
