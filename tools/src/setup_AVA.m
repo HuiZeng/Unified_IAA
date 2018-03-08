@@ -16,9 +16,9 @@ ori_var = sum(bsxfun(@minus,score,[1:10]).^2 .* RSD,2);
 mod_var = min(1.5,0.5*ori_var);
 
 Gauss = bsxfun(@minus,score,imdb.anchors');
-Gauss_OV = exp(-bsxfun(@rdivide,(Gauss.^2),ori_var));
+Gauss_OV = exp(-bsxfun(@rdivide,(Gauss.^2),2*ori_var));
 Gauss_OV = bsxfun(@rdivide,Gauss_OV,sum(Gauss_OV,2));
-Gauss_MV = exp(-bsxfun(@rdivide,(Gauss.^2),mod_var));
+Gauss_MV = exp(-bsxfun(@rdivide,(Gauss.^2),2*mod_var));
 Gauss_MV = bsxfun(@rdivide,Gauss_MV,sum(Gauss_MV,2));
 
 
