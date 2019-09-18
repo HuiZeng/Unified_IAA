@@ -232,7 +232,7 @@ for t=1:params.batchSize:numel(subset)
     p = net.getVarIndex('fc') ;
     if size(net.vars(p).value,3) > 1
         switch params.imdb.meta.lossType
-            case 'CE'
+            case {'CE','EMD'}
                 predictions(batch) = params.imdb.anchors' * squeeze(gather(vl_nnsoftmax(net.vars(p).value)));
             case {'MSE','Huber'}
                 predictions(batch) = params.imdb.anchors' * squeeze(gather(net.vars(p).value));

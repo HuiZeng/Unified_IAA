@@ -25,8 +25,8 @@ if ~isfield(opts.train, 'gpus'), opts.train.gpus = [1]; end;
 
 switch opts.Model
   case 'vgg16'
-      opts.networkType = 'simplenn' ;
-  case 'resnet50' 
+      opts.networkType = 'dagnn' ;
+  case {'resnet50','resnet101'} 
       opts.networkType = 'dagnn' ;
 end
 

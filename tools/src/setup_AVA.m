@@ -16,10 +16,12 @@ ori_var = sum(bsxfun(@minus,score,[1:10]).^2 .* RSD,2);
 mod_var = min(1.5,0.5*ori_var);
 
 Gauss = bsxfun(@minus,score,imdb.anchors');
-Gauss_OV = exp(-bsxfun(@rdivide,(Gauss.^2),2*ori_var));
+Gauss_OV = exp(-bsxfun(@rdivide,(Gauss.^2),ori_var));
 Gauss_OV = bsxfun(@rdivide,Gauss_OV,sum(Gauss_OV,2));
-Gauss_MV = exp(-bsxfun(@rdivide,(Gauss.^2),2*mod_var));
+Gauss_MV = exp(-bsxfun(@rdivide,(Gauss.^2),mod_var));
 Gauss_MV = bsxfun(@rdivide,Gauss_MV,sum(Gauss_MV,2));
+
+MARE = mean(abs(Gauss_MV * [1:10]' - score))
 
 
 set = ones(1,numel(score));
@@ -46,6 +48,7 @@ else
     load(fullfile('data','AVA','image_exist_flag.mat'),'flag');
 end
 
+
 imdb.images.score = score(flag)';
 imdb.images.labels = single(labels(flag));
 
@@ -58,5 +61,9 @@ imdb.meta.sets = {'train', 'val', 'test'} ;
 imdb.meta.base_dir = base_dir;
 imdb.meta.imageList = imageList(flag);
 
+
+imdb.images.std = sqrt(ori_var(flag)');
+% imdb.images.std = (imdb.images.std - min(imdb.images.std))/ (max(imdb.images.std) - min(imdb.images.std)) * 9.99;
+% imdb.images.score = imdb.images.std;
 
 
