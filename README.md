@@ -1,6 +1,6 @@
 # Introduction
 
-Matlab implementation of "A Unified Probabilistic Formulation for Image Aesthetic Assessment". After two years, this work finally gets acceptted by TIP. The paper can be downloaded [here](https://drive.google.com/open?id=1tMjcllKP8SzTn-dWVmogxaCLpzL1L7nO).
+Matlab implementation of "A Unified Probabilistic Formulation of Image Aesthetic Assessment". After two years, this work finally gets acceptted by TIP. The paper can be downloaded [here](https://drive.google.com/open?id=1tMjcllKP8SzTn-dWVmogxaCLpzL1L7nO).
 
 **How to run the Code**
 
